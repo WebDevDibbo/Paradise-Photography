@@ -48,7 +48,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <Link to='/login'><button className="btn btn-primary mr-2">LogIn</button></Link>
-          <button className="btn btn-primary">Sign Up</button>
+          <Link to='/signup'><button className="btn btn-primary">Sign Up</button></Link>
         </div>
       </div>
     </div>

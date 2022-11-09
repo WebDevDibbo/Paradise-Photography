@@ -28,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<AllServiceCard></AllServiceCard>
+            },
+            {
+                  path:'/blog',
+                  
             }
         ]
     }

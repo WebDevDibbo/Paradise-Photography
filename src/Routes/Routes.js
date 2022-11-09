@@ -8,6 +8,7 @@ import Service from "../Pages/Home/Services/Service";
 import ServiceCard from "../Pages/Home/Services/ServiceCard";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetail/ServiceDetails";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
             {
                   path:'/blog',
                   element:<Blog></Blog>
+            },
+            {
+                path:'/services/:id',
+                element:<ServiceDetails></ServiceDetails>,
+                loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
     }

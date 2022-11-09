@@ -1,4 +1,6 @@
 import React from "react";
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceCard = ({ service }) => {
   console.log(service);
@@ -6,9 +8,13 @@ const ServiceCard = ({ service }) => {
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-2xl rounded-lg border border-orange-600">
+        <PhotoProvider>
         <figure className="px-4">
+          <PhotoView src = {image}>
           <img className="" src={image} alt="Shoes" />
+          </PhotoView>
         </figure>
+        </PhotoProvider>
         <div className="card-body">
           <h2 className="card-title font-bold">{name}</h2>
           <div className="flex justify-between text-primary">

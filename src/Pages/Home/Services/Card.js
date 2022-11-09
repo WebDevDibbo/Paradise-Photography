@@ -1,13 +1,19 @@
 import React from 'react';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Card = ({singleCard}) => {
     const { name, image, price, description } = singleCard;
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-2xl rounded-lg">
+        <PhotoProvider>
         <figure>
+          <PhotoView src={image}>
           <img src={image} alt="" />
+          </PhotoView>
         </figure>
+        </PhotoProvider>
         <div className="card-body">
           <h2 className="card-title font-bold">{name}</h2>
           <div className="flex justify-between text-primary">

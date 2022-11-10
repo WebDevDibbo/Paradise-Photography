@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Link, Navigate, useLoaderData, useLocation } from "react-router-dom";
+import { useLoaderData, } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
   const { _id,name } = useLoaderData();
-  // const location = useLocation()
+  
 
   const handleSubmitReview = (event) => {
     if(!user){
@@ -27,7 +27,7 @@ const Review = () => {
         email,
         message,
       };
-      fetch("http://localhost:5000/reviews", {
+      fetch("https://picture-perfect-server.vercel.app/reviews", {
         method: "POST",
         headers: {
           "content-type": "application/json",

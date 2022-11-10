@@ -7,7 +7,7 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`,
+    fetch(`https://picture-perfect-server.vercel.app/reviews?email=${user?.email}`,
      {
       headers: {
         authorization: `Bearer  ${localStorage.getItem("photo-token")}`,
@@ -21,7 +21,7 @@ const MyReview = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete this?");
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://picture-perfect-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -36,7 +36,7 @@ const MyReview = () => {
   };
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://picture-perfect-server.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -40,12 +40,12 @@ export const router = createBrowserRouter([
             {
                 path:'/services/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader : ({params}) => fetch(`https://picture-perfect-server.vercel.app/services/${params.id}`)
             },
             {
                 path:'/review/:id',
                 element:<Review></Review>,
-                loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader : ({params}) => fetch(`https://picture-perfect-server.vercel.app/services/${params.id}`)
             },
             {
                 path:'/myreview',

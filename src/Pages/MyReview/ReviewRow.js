@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const ReviewRow = ({ review,handleDelete }) => {
+const ReviewRow = ({ review,handleDelete,handleUpdate }) => {
   const { _id,serviceName, customer, email, service, message } = review;
   const [reviewService, setReviewService] = useState({});
   useEffect(() => {
@@ -37,7 +37,7 @@ const ReviewRow = ({ review,handleDelete }) => {
       <td>{message}</td>
       <th>
         <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs"><FaTrash></FaTrash></button>
-        <button className="btn btn-ghost btn-xs"><FaEdit></FaEdit></button>
+        <button onClick={()=> handleUpdate(_id)} className="btn btn-ghost btn-xs"><FaEdit></FaEdit></button>
       </th>
     </tr>
   );

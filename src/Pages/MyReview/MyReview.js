@@ -28,6 +28,27 @@ const MyReview = () => {
         })
     }
   }
+
+  const handleUpdate = (id) => {
+   fetch(`http://localhost:5000/reviews/${id}`,{
+    method:"PATCH",
+    headers:{
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify({status:"approved"})
+   })
+   .then(res => res.json())
+   .then(data =>{
+    if(data.modifiedCount > 1){
+        const remaining = reviews.filter(rev => rev._id !== id)
+        const approving = reviews.find(rev => rev._id === id)
+        approving.status = "Edited"
+
+        const newReviews = [...remaining,approving]
+        setReviews(newReviews)
+    }
+   })
+  }
   return (
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
@@ -35,6 +56,7 @@ const MyReview = () => {
           {reviews.map((review) => (
             <ReviewRow key={review._id} review={review}
             handleDelete={handleDelete}
+            handleUpdate = {handleUpdate}
             ></ReviewRow>
           ))}
         </tbody>

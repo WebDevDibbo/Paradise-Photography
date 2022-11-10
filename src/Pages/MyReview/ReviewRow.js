@@ -13,10 +13,11 @@ const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
   }, [service]);
 
   return (
-    <tr>
+   
+      <tr>
       <td>
         <div className="flex items-center space-x-3">
-          <div className="avatar m-5">
+          <div className="avatar m-2">
 
               {user?.photoURL ? (
                 <img
@@ -56,6 +57,7 @@ const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
         </button>
       </th>
     </tr>
+    
   );
 };
 

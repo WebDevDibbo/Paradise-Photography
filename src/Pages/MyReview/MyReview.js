@@ -60,7 +60,7 @@ const MyReview = () => {
     <h2 className="text-center text-4xl font-semibold my-16">You have {reviews.length} reviews</h2>
      <div className="overflow-x-auto w-full">
       
-      <table className="table w-full">
+      <table className=" table w-full" >
         <tbody>
           {reviews.map((review) => (
             <ReviewRow

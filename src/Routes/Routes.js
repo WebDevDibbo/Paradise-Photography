@@ -9,6 +9,7 @@ import MyReview from "../Pages/MyReview/MyReview";
 import Register from "../Pages/Register/Register";
 import Review from "../Pages/ServiceDetails/Review/Review";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetail/ServiceDetails";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 export const router = createBrowserRouter([

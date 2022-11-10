@@ -52,8 +52,8 @@ const Header = () => {
 
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl">
-            Paradise Photography
+          <Link className="btn btn-ghost normal-case">
+            <span className="font-bold text-lg sm:text-lg mb:text-xl lg:text-xl">Paradise <br /> Photography</span> 
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

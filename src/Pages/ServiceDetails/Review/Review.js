@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const Review = () => {
@@ -7,6 +7,10 @@ const Review = () => {
   const { _id,name } = useLoaderData();
 
   const handleSubmitReview = (event) => {
+    if(!user){
+     <Link to='/login'>Please login to add a review</Link>
+
+    }
     event.preventDefault();
     const form = event.target;
     const fullName = form.fullname.value;
@@ -65,7 +69,7 @@ const Review = () => {
           placeholder="Your Message"
         ></textarea>
 
-        <button className="bg-primary rounded text-white font-semibold py-3 w-full">
+        <button  className="bg-primary rounded text-white font-semibold py-3 w-full">
          Add Review
         </button>
       </form>

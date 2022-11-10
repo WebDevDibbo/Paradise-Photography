@@ -2,10 +2,10 @@ import React from "react";
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from "react-router-dom";
+import Review from "../Review/Review";
 
 const ServiceDetails = () => {
     const service = useLoaderData()
-    console.log(service)
   
   return (
     <div>
@@ -28,6 +28,10 @@ const ServiceDetails = () => {
           </p>
         </div>
       </div>
+      <>
+      <Review></Review>
+      </>
+      
     </div>
   );
 };

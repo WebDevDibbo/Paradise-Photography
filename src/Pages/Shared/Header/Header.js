@@ -39,6 +39,16 @@ const Header = () => {
              <li><Link to='/'>Home</Link></li>
              <li><Link to='/services'>Services</Link></li>
              <li><Link to='/blog'>Blog</Link></li>
+             {
+            user?.uid?
+            <>
+            <li><Link to='myreview'>My Reviews</Link></li>
+            <li><Link to='addservice'>Add Service</Link></li>
+            </>
+            :
+            <>
+            </>
+          }
 
             </ul>
           </div>
@@ -51,17 +61,30 @@ const Header = () => {
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/services'>Services</Link></li>
           <li><Link to='/blog'>Blog</Link></li>
+          {
+            user?.uid?
+            <>
+            <li><Link to='myreview'>My Reviews</Link></li>
+            <li><Link to='addservice'>Add Service</Link></li>
+            </>
+            :
+            <>
+            </>
+          }
           
           </ul>
         </div>
         <div className="navbar-end">
           {
             user?.uid ?
+            <>
             <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
+
+            </>
             :
             <>
             <Link to='/login'><button className="btn btn-primary mr-2">LogIn</button></Link>
-          <Link to='/signup'><button className="btn btn-primary">Sign Up</button></Link>
+            <Link to='/signup'><button className="btn btn-primary">Sign Up</button></Link>
             </>
 
           }

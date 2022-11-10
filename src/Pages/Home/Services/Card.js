@@ -7,7 +7,7 @@ const Card = ({singleCard}) => {
     const { name,_id, image, price, description } = singleCard;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-2xl rounded-lg">
+            <div className="card card-compact mx-auto  max-w-sm bg-base-100 shadow-2xl border border-gray-300 rounded-lg">
         <PhotoProvider>
         <figure>
           <PhotoView src={image}>

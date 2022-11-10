@@ -1,46 +1,49 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Navigate, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
   const { _id,name } = useLoaderData();
+  // const location = useLocation()
 
   const handleSubmitReview = (event) => {
     if(!user){
-     <Link to='/login'>Please login to add a review</Link>
+       alert('Please login first')
 
     }
-    event.preventDefault();
-    const form = event.target;
-    const fullName = form.fullname.value;
-    const email = user?.email || "unregistered";
-    const message = form.message.value;
-    console.log(name, email, message);
-
-    const review = {
-      service: _id,
-      serviceName:name,
-      customer: fullName,
-      email,
-      message,
-    };
-    fetch("http://localhost:5000/reviews", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if(data.acknowledged){
-            alert('Your review has been added succesfully')
-            form.reset()
-        }
+    else{
+      event.preventDefault();
+      const form = event.target;
+      const fullName = form.fullname.value;
+      const email = user?.email || "unregistered";
+      const message = form.message.value;
+      console.log(name, email, message);
+  
+      const review = {
+        service: _id,
+        serviceName:name,
+        customer: fullName,
+        email,
+        message,
+      };
+      fetch("http://localhost:5000/reviews", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
       })
-      .catch((e) => console.error(e));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if(data.acknowledged){
+              alert('Your review has been added succesfully')
+              form.reset()
+          }
+        })
+        .catch((e) => console.error(e));
+    }
   };
   return (
     <div>

@@ -47,7 +47,9 @@ const Review = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmitReview} className="mb-32 mt-28 pb-20 px-24">
+      
+      <form onSubmit={handleSubmitReview} className="mb-32 w-full md:w-3/4 mx-auto mt-28 pb-20 px-24">
+      <h2 className="text-3xl text-center underline">Add Review</h2>
         <div className="grid grid-cols-1 gap-6 mt-24">
           <input
             name="fullname"

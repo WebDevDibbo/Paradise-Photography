@@ -1,11 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Login = () => {
   const {signIn,googleLogin,githubLogin} = useContext(AuthContext)
+  const [error, setError] = useState(null);
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -62,7 +63,10 @@ const Login = () => {
       })
       form.reset()
     })
-    .catch(err => console.error(err.message))
+    .catch(error => {
+      console.error(`error is showing ${error}`)
+      setError(error.message);
+    })
 
   }
 
@@ -98,11 +102,12 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
+                {/* <label className="label">
                   <Link href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </Link>
-                </label>
+                </label> */}
+                <p className="text-red-600 mt-3">{error}</p>
               </div>
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-primary">Login</button>

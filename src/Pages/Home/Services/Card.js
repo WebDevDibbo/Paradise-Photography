@@ -23,8 +23,8 @@ const Card = ({singleCard}) => {
           </div>
           <p>
             {
-          description.length > 100 ?
-          description.slice(0,100)+ '...' : description
+          description.length > 90 ?
+          description.slice(0,90)+ '...' : description
           
           }
           </p>

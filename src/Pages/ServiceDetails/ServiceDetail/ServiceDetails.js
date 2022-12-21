@@ -9,7 +9,7 @@ const ServiceDetails = () => {
 
   return (
     <div>
-      <div className="card card-compact max-w-sm mx-auto bg-base-100 shadow-2xl my-6 rounded-lg border border-primary">
+      <div className="card card-compact mx-auto  bg-base-100 shadow-2xl my-6 rounded-lg border border-gray-600">
         <PhotoProvider>
           <PhotoView src={service.image}>
             <figure>

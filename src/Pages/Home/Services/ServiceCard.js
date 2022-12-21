@@ -21,8 +21,8 @@ const ServiceCard = ({ service }) => {
             <p className="text-2xl font-semibold">Price : {price}</p>
           </div>
           <p>
-            {description.length > 100
-              ? description.slice(0, 100) + "..."
+            {description.length > 90
+              ? description.slice(0, 90) + "..."
               : description}
           </p>
           <div className="card-actions justify-end mt-4">
